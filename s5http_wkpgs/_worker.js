@@ -19,6 +19,7 @@ export default {
       }
       const [client, server] = Object.values(new WebSocketPair());
       server.accept();
+      server.binaryType = 'arraybuffer';
       handleSession(server).catch(() => safeCloseWebSocket(server));
       const responseInit = {
         status: 101,
